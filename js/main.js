@@ -23,33 +23,30 @@ $(document).on('drop','.dropFiles',function(ev){
     }
     return false;
 })
+
 $(".dropFiles").on('dragover', function(ev) {
     ev.preventDefault();
 });
 
-
-
 // Move and resize
 grid_size = 10;
 
-$(" .graghightlight ")
+$(".graghightlight ")
     .draggable({ grid: [ grid_size, grid_size ] })
     .resizable({ grid: grid_size * 2 })
 	.on("mouseover", function(){
       	$( this ).addClass("move-cursor")
 	})
-
-	.on("mousedown", function(){
-    
-  	$( this )
-      .removeClass("move-cursor")
-      .addClass("grab-cursor")
-      .addClass("opac");
+    .on("mousedown", function(){
+  	    $( this )
+            .removeClass("move-cursor")
+            .addClass("grab-cursor")
+            .addClass("opac");
 	})
-	.on("mouseup", function(){
-    $('.dropFiles').prop('disabled', true);
-  	$( this )
-      .removeClass("grab-cursor")
-      .removeClass("opac")
-      .addClass("move-cursor");
-	});
+    .on("mouseup", function(){
+        $('.dropFiles').prop('disabled', true);
+        $( this )
+        .removeClass("grab-cursor")
+        .removeClass("opac")
+        .addClass("move-cursor");
+    });
